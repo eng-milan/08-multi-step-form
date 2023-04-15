@@ -21,7 +21,9 @@ function App() {
       </div>
       <FooterNav />
     </div>
-    <Footer className="mt-[20px]" />
+    <div className="fixed bottom-0 flex justify-center bg-white w-full">
+      <Footer/>
+    </div>
   </main>
 }
 
