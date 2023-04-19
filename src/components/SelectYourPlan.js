@@ -1,27 +1,32 @@
-import ArcadeImg from "../images/icon-arcade.svg"
-import AdvancedImg from "../images/icon-advanced.svg"
-import ProImg from "../images/icon-pro.svg"
-import Switch from "./Switch"
-
-import PlanCard from "./PlanCard"
 import { useState } from "react"
+import Switch from "./Switch"
+import PlanCard from "./PlanCard"
+import plansData from "../data/plansData"
 
 function SelectYourPlan() {
     const [isYearly, setIsYearly] = useState(false)
 
-    return <div className="relative -top-[85px] mx-[20px] mb-[50px] px-[30px] pt-[25px] pb-[40px] bg-white rounded-xl">
+    const renderedPlanCards = plansData.map((plan) => {
+        return <PlanCard
+            key={plan.name}
+            image={plan.image}
+            planName={plan.name}
+            monthlyRate={plan.monthlyRate}
+            yearlyRate={plan.yearlyRate}
+            isYearly={isYearly} />
+    })
+
+    return <div className="relative -top-[85px] mx-[20px] -mb-[50px] px-[30px] pt-[35px] pb-[40px] bg-white rounded-xl border-4">
         <div>
             <h1 className="text-[30px] font-bold">Select your plan</h1>
             <p className="mt-[10px] text-[#9699ab] text-[20px] font-medium">You have the option of monthly or yearly billing.</p>
-            <div>
-                <PlanCard image={ArcadeImg} planName="Arcade" billingOption="$9/mo-$90/yr" yearly />
-                <PlanCard image={AdvancedImg} planName="Advanced" billingOption="$12/mo-$120/yr" yearly />
-                <PlanCard image={ProImg} planName="Pro" billingOption="$15/mo-$150/yr" yearly />
+            <div className="mt-[30px]">
+                {renderedPlanCards}
             </div>
-            <div className="flex justify-center items-center py-[15px] bg-[#f0f6ff] rounded-lg">
-                <span className="mr-[20px]">Monthly</span>
+            <div className="flex justify-center items-center mt-[30px] py-[10px] bg-[#f0f6ff] rounded-lg">
+                <span className={`mr-[25px] text-[20px] font-bold ${isYearly && "text-[#9699ab]"}`}>Monthly</span>
                 <Switch isYearly={isYearly} onToggle={() => setIsYearly(!isYearly)} />
-                <span className="ml-[20px]">Yearly</span>
+                <span className={`ml-[25px] text-[20px] font-bold ${!isYearly && "text-[#9699ab]"}`}>Yearly</span>
             </div>
         </div>
     </div>

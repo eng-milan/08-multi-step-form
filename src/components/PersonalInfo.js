@@ -2,7 +2,6 @@ import { useState } from "react"
 
 function PersonalInfo() {
     const [personalInformation, setPersonalInformation] = useState({ name: "", email: "", tel: "" })
-    console.log(personalInformation)
 
     const handleChange = (e) => {
         switch (e.target.id) {

@@ -1,3 +1,4 @@
+import { Routes, Route } from "react-router";
 import PersonalInfo from "./components/PersonalInfo";
 import SelectYourPlan from "./components/SelectYourPlan"
 import AddOns from "./components/AddOns"
@@ -5,7 +6,6 @@ import FinishingUp from "./components/FinishingUp";
 import HeaderNav from "./components/HeaderNav"
 import FooterNav from "./components/FooterNav"
 import Footer from "./components/Footer"
-import { Routes, Route } from "react-router";
 
 function App() {
   return <main>
