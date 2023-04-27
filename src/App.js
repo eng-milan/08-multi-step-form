@@ -3,6 +3,7 @@ import PersonalInfo from "./components/PersonalInfo";
 import SelectYourPlan from "./components/SelectYourPlan"
 import AddOns from "./components/AddOns"
 import FinishingUp from "./components/FinishingUp";
+import Confirmation from "./components/Confirmation"
 import HeaderNav from "./components/HeaderNav"
 import FooterNav from "./components/FooterNav"
 import Footer from "./components/Footer"
@@ -17,6 +18,7 @@ function App() {
           <Route path="/select-your-plan" element={<SelectYourPlan />} />
           <Route path="/add-ons" element={<AddOns />} />
           <Route path="/finishing-up" element={<FinishingUp />} />
+          <Route path="/confirmation" element={<Confirmation />} />
         </Routes>
       </div>
       <FooterNav />

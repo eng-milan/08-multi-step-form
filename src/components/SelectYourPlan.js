@@ -1,10 +1,17 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Switch from "./Switch"
 import PlanCard from "./PlanCard"
 import plansData from "../data/plansData"
+import useFormStepContext from "../hooks/use-form-step-context"
 
 function SelectYourPlan() {
     const [isYearly, setIsYearly] = useState(false)
+
+    const { changeStep } = useFormStepContext()
+
+    useEffect(() => {
+        changeStep(2)
+    }, [changeStep])
 
     const renderedPlanCards = plansData.map((plan) => {
         return <PlanCard

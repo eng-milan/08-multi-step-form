@@ -1,10 +1,9 @@
 import classNames from "classnames"
-import { useContext } from "react"
-import FormStepContext from "../context/FormStep"
+import useFormStepContext from "../hooks/use-form-step-context"
 import { Link } from "react-router-dom"
 
 function Header() {
-    const { step, changeStep } = useContext(FormStepContext)
+    const { step, changeStep } = useFormStepContext()
 
     const linkClassName = classNames("px-[15px] py-[8px] mx-[10px] border rounded-full font-bold")
 

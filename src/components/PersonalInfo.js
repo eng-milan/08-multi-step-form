@@ -1,8 +1,13 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import useFormStepContext from "../hooks/use-form-step-context"
 
 function PersonalInfo() {
     const [personalInformation, setPersonalInformation] = useState({ name: "", email: "", tel: "" })
+    const { changeStep } = useFormStepContext()
 
+    useEffect(() => {
+        changeStep(1)
+    }, [changeStep])
 
     const handleChange = (e) => {
         switch (e.target.id) {

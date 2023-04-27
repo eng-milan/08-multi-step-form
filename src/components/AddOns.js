@@ -1,8 +1,15 @@
 import AddonsCard from "./AddonsCard"
 import addonData from "../data/addonData"
-
+import { useEffect } from "react"
+import useFormStepContext from "../hooks/use-form-step-context"
 
 function AddOns() {
+    const { changeStep } = useFormStepContext()
+
+    useEffect(() => {
+        changeStep(3)
+    }, [changeStep])
+
     const renderedAddons = addonData.map((addon) => {
         return <AddonsCard
             key={addon.id}
