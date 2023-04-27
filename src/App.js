@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router";
+import { Routes, Route } from "react-router-dom";
 import PersonalInfo from "./components/PersonalInfo";
 import SelectYourPlan from "./components/SelectYourPlan"
 import AddOns from "./components/AddOns"
@@ -22,7 +22,7 @@ function App() {
       <FooterNav />
     </div>
     <div className="fixed bottom-0 flex justify-center bg-white w-full">
-      <Footer/>
+      <Footer />
     </div>
   </main>
 }

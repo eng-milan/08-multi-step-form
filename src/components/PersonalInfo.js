@@ -3,6 +3,7 @@ import { useState } from "react"
 function PersonalInfo() {
     const [personalInformation, setPersonalInformation] = useState({ name: "", email: "", tel: "" })
 
+
     const handleChange = (e) => {
         switch (e.target.id) {
             case "name":

@@ -16,7 +16,7 @@ function SelectYourPlan() {
             isYearly={isYearly} />
     })
 
-    return <div className="relative -top-[85px] mx-[20px] -mb-[50px] px-[30px] pt-[35px] pb-[40px] bg-white rounded-xl border-4">
+    return <div className="relative -top-[85px] mx-[20px] -mb-[50px] px-[30px] pt-[35px] pb-[40px] bg-white rounded-xl">
         <div>
             <h1 className="text-[30px] font-bold">Select your plan</h1>
             <p className="mt-[10px] text-[#9699ab] text-[20px] font-medium">You have the option of monthly or yearly billing.</p>
