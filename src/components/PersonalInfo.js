@@ -2,7 +2,25 @@ import { useEffect, useState } from "react"
 import useFormStepContext from "../hooks/use-form-step-context"
 
 function PersonalInfo() {
-    const [personalInformation, setPersonalInformation] = useState({ name: "", email: "", tel: "" })
+    const [personalInformation, setPersonalInformation] = useState(() => {
+        let savedData = {}
+        try {
+            savedData = {
+                name: sessionStorage.getItem("name"),
+                email: sessionStorage.getItem("email"),
+                tel: sessionStorage.getItem("tel")
+            }
+        } catch (error) {
+            console.log("Session storage is not available.")
+        }
+
+        return {
+            name: savedData.name || "",
+            email: savedData.email || "",
+            tel: savedData.tel || ""
+        }
+    })
+
     const { changeStep } = useFormStepContext()
 
     useEffect(() => {
@@ -10,19 +28,9 @@ function PersonalInfo() {
     }, [changeStep])
 
     const handleChange = (e) => {
-        switch (e.target.id) {
-            case "name":
-                setPersonalInformation({ ...personalInformation, name: e.target.value })
-                break
-            case "email":
-                setPersonalInformation({ ...personalInformation, email: e.target.value })
-                break
-            case "tel":
-                setPersonalInformation({ ...personalInformation, tel: e.target.value })
-                break
-            default:
-                break
-        }
+        const { id, value } = e.target
+        setPersonalInformation(prevValue => ({ ...prevValue, [id]: value }))
+        sessionStorage.setItem(id, value)
     }
 
     return <div className="relative -top-[80px] mx-[20px] mb-[50px] px-[30px] pt-[25px] pb-[40px] bg-white rounded-xl">
@@ -33,6 +41,7 @@ function PersonalInfo() {
                 <label className="text-[14px] font-medium" htmlFor="name">Name</label>
                 <input
                     onChange={e => handleChange(e)}
+                    value={personalInformation.name}
                     className="px-[15px] py-[10px] block border w-full rounded text-[18px] font-bold"
                     id="name"
                     placeholder="e.g. Stephen King"
@@ -41,14 +50,16 @@ function PersonalInfo() {
                 <label className="mt-[15px] text-[14px] block font-medium" htmlFor="email">Email Address</label>
                 <input
                     onChange={e => handleChange(e)}
+                    value={personalInformation.email}
                     className="px-[15px] py-[10px] block border w-full rounded text-[18px] font-bold"
                     id="email"
                     placeholder="e.g. stephenking@lorem.com"
                     type="email"
                     required />
-                <label className="mt-[15px] text-[14px] block font-medium" htmlFor="phone">Phone Number</label>
+                <label className="mt-[15px] text-[14px] block font-medium" htmlFor="tel">Phone Number</label>
                 <input
                     onChange={e => handleChange(e)}
+                    value={personalInformation.tel}
                     className="px-[15px] py-[10px] block border w-full rounded text-[18px] font-bold"
                     id="tel"
                     placeholder="e.g. +1 234 567 890"
