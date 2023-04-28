@@ -1,17 +1,22 @@
-import { useState, useEffect } from "react"
+import { useEffect } from "react"
 import Switch from "./Switch"
 import PlanCard from "./PlanCard"
 import plansData from "../data/plansData"
 import useFormStepContext from "../hooks/use-form-step-context"
 
 function SelectYourPlan() {
-    const [isYearly, setIsYearly] = useState(false)
-
-    const { changeStep } = useFormStepContext()
+    const { changeStep, selectedPlan, setPlan, isYearly, setIsYearly } = useFormStepContext()
 
     useEffect(() => {
         changeStep(2)
     }, [changeStep])
+
+    const handlePlanClick = (e) => {
+        const selectedPlan = plansData.filter((plan) => {
+            return plan.name === e.target.children[1].children[0].textContent
+        })
+        setPlan(selectedPlan[0])
+    }
 
     const renderedPlanCards = plansData.map((plan) => {
         return <PlanCard
@@ -20,7 +25,9 @@ function SelectYourPlan() {
             planName={plan.name}
             monthlyRate={plan.monthlyRate}
             yearlyRate={plan.yearlyRate}
-            isYearly={isYearly} />
+            isYearly={isYearly}
+            handlePlanClick={handlePlanClick}
+            selectedPlan={selectedPlan} />
     })
 
     return <div className="relative -top-[85px] mx-[20px] -mb-[50px] px-[30px] pt-[35px] pb-[40px] bg-white rounded-xl">
@@ -31,9 +38,9 @@ function SelectYourPlan() {
                 {renderedPlanCards}
             </div>
             <div className="flex justify-center items-center mt-[30px] py-[10px] bg-[#f0f6ff] rounded-lg">
-                <span className={`mr-[25px] text-[20px] font-bold ${isYearly && "text-[#9699ab]"}`}>Monthly</span>
+                <span className={`mr-[25px] text-[20px] font-medium ${isYearly && "text-[#9699ab]"}`}>Monthly</span>
                 <Switch isYearly={isYearly} onToggle={() => setIsYearly(!isYearly)} />
-                <span className={`ml-[25px] text-[20px] font-bold ${!isYearly && "text-[#9699ab]"}`}>Yearly</span>
+                <span className={`ml-[25px] text-[20px] font-medium ${!isYearly && "text-[#9699ab]"}`}>Yearly</span>
             </div>
         </div>
     </div>
