@@ -6,20 +6,20 @@ const plansData = [
     {
         image: ArcadeImg,
         name: "Arcade",
-        monthlyRate: "$9/mo",
-        yearlyRate: "$90/yr",
+        monthlyRate: "9",
+        yearlyRate: "90",
     },
     {
         image: AdvancedImg,
         name: "Advanced",
-        monthlyRate: "$12/mo",
-        yearlyRate: "$120/yr",
+        monthlyRate: "12",
+        yearlyRate: "120",
     },
     {
         image: ProImg,
         name: "Pro",
-        monthlyRate: "$15/mo",
-        yearlyRate: "$150/yr",
+        monthlyRate: "15",
+        yearlyRate: "150",
     }
 ]
 

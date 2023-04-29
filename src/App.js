@@ -9,10 +9,10 @@ import FooterNav from "./components/FooterNav"
 import Footer from "./components/Footer"
 
 function App() {
-  return <main>
+  return <main className="bg-[#f0f6ff] h-screen">
     <div>
       <HeaderNav />
-      <div className="bg-[#f0f6ff] border">
+      <div className="bg-[#f0f6ff]">
         <Routes>
           <Route path="/" element={<PersonalInfo />} />
           <Route path="/select-your-plan" element={<SelectYourPlan />} />

@@ -13,7 +13,7 @@ function SelectYourPlan() {
 
     const handlePlanClick = (e) => {
         const selectedPlan = plansData.filter((plan) => {
-            return plan.name === e.target.children[1].children[0].textContent
+            return plan.name === e.currentTarget.children[1].children[0].textContent
         })
         setPlan(selectedPlan[0])
     }

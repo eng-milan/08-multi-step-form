@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 import useFormStepContext from "../hooks/use-form-step-context"
 
 function FooterNav() {
-    const { step } = useFormStepContext()
+    const { step, selectedPlan } = useFormStepContext()
 
     const linkClassNames = classNames("px-[20px] py-[10px] font-medium rounded-md")
 
@@ -34,15 +34,22 @@ function FooterNav() {
         }
     }
 
-    return <div className="flex justify-between mb-[20px] p-[20px]">
+    const handleConfirmationClick = (e) => {
+        if (step === 4 && !selectedPlan.name) {
+            e.preventDefault()
+        }
+    }
+
+    return <div className="flex justify-between mb-[20px] p-[20px] bg-white">
         <Link
-            className={`${linkClassNames} ${step === 1 && "invisible"} bg-white text-[#9699ab]`}
+            className={`${linkClassNames} ${step === 1 && "invisible"} ${step === 5 && "invisible"} bg-white text-[#9699ab]`}
             to={whichStep("backward")}>
             Go Back
         </Link>
         <Link
-            className={`${linkClassNames} ${step === 4 && "bg-[#473dff]"} bg-[#02295a] text-white`}
-            to={whichStep("forward")}>
+            className={`${linkClassNames} ${step === 4 && "bg-[#473dff]"} ${step === 5 && "invisible"} bg-[#02295a] text-white`}
+            to={whichStep("forward")}
+            onClick={e => handleConfirmationClick(e)}>
             {step === 4 ? "Confirm" : "Next Step"}
         </Link>
     </div>
