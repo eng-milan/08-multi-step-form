@@ -6,6 +6,7 @@ function Provider({ children }) {
     const [step, setStep] = useState(1)
     const [selectedPlan, setSelectedPlan] = useState({})
     const [isYearly, setIsYearly] = useState(false)
+    const [selectedAddons, setSelectedAddon] = useState([])
 
     const contextValues = {
         step,
@@ -19,6 +20,10 @@ function Provider({ children }) {
         isYearly,
         setIsYearly: () => {
             setIsYearly(!isYearly)
+        },
+        selectedAddons,
+        setAddon: (newAddon) => {
+            setSelectedAddon(newAddon)
         }
     }
 
