@@ -1,15 +1,11 @@
-import { useState } from "react"
 
-function AddonsCard({ id, name, description, monthlyFee, yearlyFee, isYearly, handleAddonClick }) {
-    const [isChecked, setIsChecked] = useState(false)
+function AddonsCard({ id, name, description, monthlyFee, yearlyFee, isYearly, handleAddonClick, selectedAddons }) {
+    const isChecked = selectedAddons.some(addon => addon.name === name)
 
     return <div
         className={`flex items-center justify-between mb-[15px] px-[15px] py-[20px] border rounded-xl cursor-pointer
         ${isChecked && "bg-[#f0f6ff] border-[#02295a]"}`}
-        onClick={(e) => {
-            handleAddonClick(e)
-            setIsChecked(!isChecked)
-        }}>
+        onClick={e => handleAddonClick(e)}>
         <label className="hidden" htmlFor={id}></label>
         <div className="flex items-center">
             <input

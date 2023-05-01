@@ -11,23 +11,20 @@ function AddOns() {
     }, [changeStep])
 
     const handleAddonClick = (e) => {
-        const selectedAddon = addonData.filter((addon) => {
-            return addon.name === e.currentTarget.children[1].children[1].children[0].textContent
-        })
+        const clickedAddonName = e.currentTarget.children[1].children[1].children[0].textContent
+
+        const selectedAddon = addonData.find(addon => addon.name === clickedAddonName)
+
         if (selectedAddons.length === 0) {
-            setAddons(selectedAddon)
+            setAddons([selectedAddon])
         } else {
-            const newSelectedAddons = selectedAddons.filter((addon) => {
-                return addon.name !== selectedAddon[0].name
-            })
-            const shouldRemoveAddon = selectedAddons.some((addon) => {
-                return addon.name === selectedAddon[0].name
-            })
-            if (shouldRemoveAddon) {
-                setAddons(newSelectedAddons)
-            } else {
-                setAddons([...selectedAddons, selectedAddon[0]])
-            }
+            const shouldRemoveAddon = selectedAddons.some(addon => addon.name === selectedAddon.name)
+
+            const newSelectedAddons = shouldRemoveAddon
+                ? selectedAddons.filter(addon => addon.name !== selectedAddon.name)
+                : [...selectedAddons, selectedAddon]
+
+            setAddons(newSelectedAddons)
         }
     }
 
@@ -40,7 +37,8 @@ function AddOns() {
             monthlyFee={addon.monthlyFee}
             yearlyFee={addon.yearlyFee}
             isYearly={isYearly}
-            handleAddonClick={handleAddonClick} />
+            handleAddonClick={handleAddonClick}
+            selectedAddons={selectedAddons} />
     })
 
     return <div className="relative -top-[80px] mx-[20px] mb-[80px] px-[30px] py-[30px] bg-white rounded-xl">

@@ -26,7 +26,6 @@ function Provider({ children }) {
             setSelectedAddons(newAddon)
         }
     }
-    console.log(selectedAddons)
 
     return <FormStepContext.Provider value={contextValues}>
         {children}
