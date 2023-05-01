@@ -1,7 +1,7 @@
 import classNames from "classnames"
 
 function PlanCard({ image, planName, monthlyRate, yearlyRate, isYearly, handlePlanClick, selectedPlan }) {
-    const cardClassNames = classNames("flex items-start mb-[15px] px-[20px] py-[20px] border border-[#d6d9e6] rounded-xl cursor-pointer", {
+    const cardClassNames = classNames("flex items-start mb-[15px] px-[20px] py-[20px] border rounded-xl cursor-pointer", {
         " bg-[#f0f6ff] border-[#02295a]": selectedPlan.name === planName
     })
 
@@ -11,7 +11,7 @@ function PlanCard({ image, planName, monthlyRate, yearlyRate, isYearly, handlePl
         <img className="mr-[20px] w-[55px]" src={image} alt="arcade" />
         <div className="flex flex-col">
             <span className="text-[20px] font-bold">{planName}</span>
-            <span className="text-[#9699ab]">{isYearly ? yearlyRate : monthlyRate}</span>
+            <span className="text-[#9699ab]">{isYearly ? `$${yearlyRate}/yr` : `$${monthlyRate}/mo`}</span>
             <span className="text-[14px]">{isYearly && "2 months free"}</span>
         </div>
     </div>

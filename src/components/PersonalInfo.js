@@ -42,7 +42,7 @@ function PersonalInfo() {
                 <input
                     onChange={e => handleChange(e)}
                     value={personalInformation.name}
-                    className="px-[15px] py-[10px] block border w-full rounded text-[18px] font-bold"
+                    className="px-[15px] py-[10px] block border w-full rounded text-[18px] font-medium"
                     id="name"
                     placeholder="e.g. Stephen King"
                     type="text"
@@ -51,7 +51,7 @@ function PersonalInfo() {
                 <input
                     onChange={e => handleChange(e)}
                     value={personalInformation.email}
-                    className="px-[15px] py-[10px] block border w-full rounded text-[18px] font-bold"
+                    className="px-[15px] py-[10px] block border w-full rounded text-[18px] font-medium"
                     id="email"
                     placeholder="e.g. stephenking@lorem.com"
                     type="email"
@@ -60,7 +60,7 @@ function PersonalInfo() {
                 <input
                     onChange={e => handleChange(e)}
                     value={personalInformation.tel}
-                    className="px-[15px] py-[10px] block border w-full rounded text-[18px] font-bold"
+                    className="px-[15px] py-[10px] block border w-full rounded text-[18px] font-medium"
                     id="tel"
                     placeholder="e.g. +1 234 567 890"
                     type="tel"

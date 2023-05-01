@@ -4,10 +4,10 @@ function AddonsCard({ id, name, description, monthlyFee, yearlyFee, isYearly, ha
     const [isChecked, setIsChecked] = useState(false)
 
     return <div
-        className={`flex items-center justify-between mb-[15px] px-[15px] py-[20px] border border-[#d6d9e6]
-        rounded-xl cursor-pointer ${isChecked && "bg-[#f0f6ff]"}`}
+        className={`flex items-center justify-between mb-[15px] px-[15px] py-[20px] border rounded-xl cursor-pointer
+        ${isChecked && "bg-[#f0f6ff] border-[#02295a]"}`}
         onClick={(e) => {
-            handleAddonClick(e, isChecked)
+            handleAddonClick(e)
             setIsChecked(!isChecked)
         }}>
         <label className="hidden" htmlFor={id}></label>
@@ -24,7 +24,7 @@ function AddonsCard({ id, name, description, monthlyFee, yearlyFee, isYearly, ha
                 <span className="text-[14px] text-[#9699ab] font-medium">{description}</span>
             </div>
         </div>
-        <span className="text-[#473dff] font-medium">{isYearly ? yearlyFee : monthlyFee}</span>
+        <span className="text-[#473dff] font-medium">{isYearly ? `$${yearlyFee}/yr` : `$${monthlyFee}/mo`}</span>
     </div>
 }
 

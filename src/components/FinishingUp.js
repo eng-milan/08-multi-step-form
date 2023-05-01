@@ -23,10 +23,10 @@ function FinishingUp() {
             return isYearly ? acc + addon.yearlyFee : acc + addon.monthlyFee
         }, 0)
         const planFee = selectedPlan.yearlyRate ? (isYearly ? selectedPlan.yearlyRate : selectedPlan.monthlyRate) : 0
-        return addonsFee + planFee
+        return Number(addonsFee) + Number(planFee)
     }
 
-    return <div className="relative -top-[80px] mx-[20px] mb-[50px] px-[30px] py-[30px] bg-white rounded-xl">
+    return <div className="relative -top-[80px] mx-[20px] mb-[80px] px-[30px] py-[30px] bg-white rounded-xl">
         <div>
             <h1 className="text-[32px] font-bold">Finishing up</h1>
             <p className="mt-[10px] text-[#9699ab] text-[20px] font-medium">Double-check everything looks OK before confirming.</p>

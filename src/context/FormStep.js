@@ -6,7 +6,7 @@ function Provider({ children }) {
     const [step, setStep] = useState(1)
     const [selectedPlan, setSelectedPlan] = useState({})
     const [isYearly, setIsYearly] = useState(false)
-    const [selectedAddons, setSelectedAddon] = useState([])
+    const [selectedAddons, setSelectedAddons] = useState([])
 
     const contextValues = {
         step,
@@ -22,10 +22,11 @@ function Provider({ children }) {
             setIsYearly(!isYearly)
         },
         selectedAddons,
-        setAddon: (newAddon) => {
-            setSelectedAddon(newAddon)
+        setAddons: (newAddon) => {
+            setSelectedAddons(newAddon)
         }
     }
+    console.log(selectedAddons)
 
     return <FormStepContext.Provider value={contextValues}>
         {children}
