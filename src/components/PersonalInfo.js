@@ -2,38 +2,43 @@ import { useEffect, useState } from "react"
 import useFormStepContext from "../hooks/use-form-step-context"
 
 function PersonalInfo() {
-    const [personalInformation, setPersonalInformation] = useState(() => {
-        let savedData = {}
-        try {
-            savedData = {
-                name: sessionStorage.getItem("name"),
-                email: sessionStorage.getItem("email"),
-                tel: sessionStorage.getItem("tel")
-            }
-        } catch (error) {
-            console.log("Session storage is not available.")
-        }
-
-        return {
-            name: savedData.name || "",
-            email: savedData.email || "",
-            tel: savedData.tel || ""
-        }
-    })
-
-    const { changeStep } = useFormStepContext()
+    const { setStep, personalInformation, setPersonalInformation } = useFormStepContext()
+    const [formErrors, setFormErrors] = useState({})
 
     useEffect(() => {
-        changeStep(1)
-    }, [changeStep])
+        setStep(1)
+    }, [setStep])
+
+    const validate = (values) => {
+        let errors = {}
+
+        if (values.name === "") {
+            errors.name = "Name is required!"
+        }
+
+        if (values.email === "") {
+            errors.email = "Email is required!"
+        } else if (!/^\S+@\S+\.\S+$/.test(values.email)) {
+            errors.email = "Email is invalid!"
+        }
+
+        if (values.tel === "") {
+            errors.tel = "Phone number is required!"
+        } else if (!/^[0-9]{10}$/.test(values.tel)) {
+            errors.tel = "Phone number is invalid!"
+        }
+
+        return errors
+    }
 
     const handleChange = (e) => {
         const { id, value } = e.target
         setPersonalInformation(prevValue => ({ ...prevValue, [id]: value }))
-        sessionStorage.setItem(id, value)
+        const errors = validate({ [id]: value })
+        setFormErrors(prevErrors => ({ ...prevErrors, [id]: errors[id] }))
     }
 
-    return <div className="relative -top-[80px] mx-[20px] mb-[50px] px-[30px] pt-[25px] pb-[40px] bg-white rounded-xl">
+    return <div className="relative -top-[85px] mx-[20px] mb-[50px] px-[30px] pt-[25px] pb-[40px] bg-white rounded-xl">
         <div>
             <h1 className="text-[30px] font-bold">Personal Info</h1>
             <p className="mt-[10px] text-[#9699ab] text-[20px] font-medium">Please provide your name, email address, and phone number.</p>
@@ -47,6 +52,7 @@ function PersonalInfo() {
                     placeholder="e.g. Stephen King"
                     type="text"
                     required />
+                {formErrors.name && <span className="text-red-500">{formErrors.name}</span>}
                 <label className="mt-[15px] text-[14px] block font-medium" htmlFor="email">Email Address</label>
                 <input
                     onChange={e => handleChange(e)}
@@ -56,6 +62,7 @@ function PersonalInfo() {
                     placeholder="e.g. stephenking@lorem.com"
                     type="email"
                     required />
+                {formErrors.email && <span className="text-red-500">{formErrors.email}</span>}
                 <label className="mt-[15px] text-[14px] block font-medium" htmlFor="tel">Phone Number</label>
                 <input
                     onChange={e => handleChange(e)}
@@ -65,6 +72,7 @@ function PersonalInfo() {
                     placeholder="e.g. +1 234 567 890"
                     type="tel"
                     required />
+                {formErrors.tel && <span className="text-red-500">{formErrors.tel}</span>}
             </form>
         </div>
     </div>

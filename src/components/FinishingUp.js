@@ -3,11 +3,11 @@ import useFormStepContext from "../hooks/use-form-step-context"
 import { Link } from "react-router-dom"
 
 function FinishingUp() {
-    const { changeStep, selectedPlan, isYearly, selectedAddons } = useFormStepContext()
+    const { setStep, selectedPlan, isYearly, selectedAddons } = useFormStepContext()
 
     useEffect(() => {
-        changeStep(4)
-    }, [changeStep])
+        setStep(4)
+    }, [setStep])
 
     const renderedAddons = selectedAddons.map((addon) => {
         return <div
@@ -26,7 +26,7 @@ function FinishingUp() {
         return Number(addonsFee) + Number(planFee)
     }
 
-    return <div className="relative -top-[80px] mx-[20px] mb-[80px] px-[30px] py-[30px] bg-white rounded-xl">
+    return <div className="relative -top-[85px] mx-[20px] mb-[80px] px-[30px] py-[30px] bg-white rounded-xl">
         <div>
             <h1 className="text-[32px] font-bold">Finishing up</h1>
             <p className="mt-[10px] text-[#9699ab] text-[20px] font-medium">Double-check everything looks OK before confirming.</p>

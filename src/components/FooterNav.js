@@ -40,7 +40,7 @@ function FooterNav() {
         }
     }
 
-    return <div className="flex justify-between mb-[20px] p-[20px] bg-white">
+    return <div className="flex justify-between mb-[20px] p-[20px]">
         <Link
             className={`${linkClassNames} ${step === 1 && "invisible"} ${step === 5 && "invisible"} bg-white text-[#9699ab]`}
             to={whichStep("backward")}>

@@ -5,17 +5,17 @@ import plansData from "../data/plansData"
 import useFormStepContext from "../hooks/use-form-step-context"
 
 function SelectYourPlan() {
-    const { changeStep, selectedPlan, setPlan, isYearly, setIsYearly } = useFormStepContext()
+    const { setStep, selectedPlan, setSelectedPlan, isYearly, setIsYearly } = useFormStepContext()
 
     useEffect(() => {
-        changeStep(2)
-    }, [changeStep])
+        setStep(2)
+    }, [setStep])
 
     const handlePlanClick = (e) => {
         const selectedPlan = plansData.filter((plan) => {
             return plan.name === e.currentTarget.children[1].children[0].textContent
         })
-        setPlan(selectedPlan[0])
+        setSelectedPlan(selectedPlan[0])
     }
 
     const renderedPlanCards = plansData.map((plan) => {

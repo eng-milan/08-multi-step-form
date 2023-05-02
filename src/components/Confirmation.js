@@ -3,11 +3,11 @@ import useFormStepContext from "../hooks/use-form-step-context"
 import thankYouLogo from "../images/icon-thank-you.svg"
 
 function Confirmation() {
-    const { changeStep } = useFormStepContext()
+    const { setStep } = useFormStepContext()
 
     useEffect(() => {
-        changeStep(5)
-    }, [changeStep])
+        setStep(5)
+    }, [setStep])
 
 
     return <div className="relative -top-[85px] flex flex-col items-center mx-[15px] bg-white rounded-xl">

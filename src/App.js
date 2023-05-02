@@ -7,12 +7,15 @@ import Confirmation from "./components/Confirmation"
 import HeaderNav from "./components/HeaderNav"
 import FooterNav from "./components/FooterNav"
 import Footer from "./components/Footer"
+import useFormStepContext from "./hooks/use-form-step-context";
 
 function App() {
-  return <main className="bg-[#f0f6ff] h-screen">
+  const { step } = useFormStepContext()
+
+  return <main className={`h-screen ${step === 5 && "bg-[#f0f6ff]"}`}>
     <div>
       <HeaderNav />
-      <div className="bg-[#f0f6ff]">
+      <div className="bg-[#f0f6ff] border">
         <Routes>
           <Route path="/" element={<PersonalInfo />} />
           <Route path="/select-your-plan" element={<SelectYourPlan />} />

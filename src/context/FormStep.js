@@ -4,17 +4,22 @@ const FormStepContext = createContext()
 
 function Provider({ children }) {
     const [step, setStep] = useState(1)
+    const [personalInformation, setPersonalInformation] = useState({ name: "", email: "", tel: "" })
     const [selectedPlan, setSelectedPlan] = useState({})
     const [isYearly, setIsYearly] = useState(false)
     const [selectedAddons, setSelectedAddons] = useState([])
 
     const contextValues = {
         step,
-        changeStep: (newStep) => {
+        setStep: (newStep) => {
             setStep(newStep)
         },
+        personalInformation,
+        setPersonalInformation: (newInformation) => {
+            setPersonalInformation(newInformation)
+        },
         selectedPlan,
-        setPlan: (newPlan) => {
+        setSelectedPlan: (newPlan) => {
             setSelectedPlan(newPlan)
         },
         isYearly,
@@ -22,7 +27,7 @@ function Provider({ children }) {
             setIsYearly(!isYearly)
         },
         selectedAddons,
-        setAddons: (newAddon) => {
+        setSelectedAddons: (newAddon) => {
             setSelectedAddons(newAddon)
         }
     }
