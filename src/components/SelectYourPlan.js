@@ -3,13 +3,18 @@ import Switch from "./Switch"
 import PlanCard from "./PlanCard"
 import plansData from "../data/plansData"
 import useFormStepContext from "../hooks/use-form-step-context"
+import { useNavigate } from "react-router-dom"
 
 function SelectYourPlan() {
-    const { setStep, selectedPlan, setSelectedPlan, isYearly, setIsYearly } = useFormStepContext()
+    const { setStep, selectedPlan, setSelectedPlan, isYearly, setIsYearly, anyFormErrors } = useFormStepContext()
+    const navigate = useNavigate()
 
     useEffect(() => {
+        if (anyFormErrors) {
+            navigate("/")
+        }
         setStep(2)
-    }, [setStep])
+    }, [setStep, anyFormErrors, navigate])
 
     const handlePlanClick = (e) => {
         const selectedPlan = plansData.filter((plan) => {

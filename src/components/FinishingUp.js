@@ -1,13 +1,17 @@
 import { useEffect } from "react"
 import useFormStepContext from "../hooks/use-form-step-context"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 function FinishingUp() {
-    const { setStep, selectedPlan, isYearly, selectedAddons } = useFormStepContext()
+    const { setStep, selectedPlan, isYearly, selectedAddons, anyFormErrors } = useFormStepContext()
+    const navigate = useNavigate()
 
     useEffect(() => {
+        if (anyFormErrors) {
+            navigate("/")
+        }
         setStep(4)
-    }, [setStep])
+    }, [setStep, anyFormErrors, navigate])
 
     const renderedAddons = selectedAddons.map((addon) => {
         return <div

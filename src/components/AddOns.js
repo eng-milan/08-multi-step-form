@@ -2,13 +2,18 @@ import AddonsCard from "./AddonsCard"
 import addonData from "../data/addonData"
 import { useEffect } from "react"
 import useFormStepContext from "../hooks/use-form-step-context"
+import { useNavigate } from "react-router-dom"
 
 function AddOns() {
-    const { setStep, isYearly, selectedAddons, setSelectedAddons } = useFormStepContext()
+    const { setStep, isYearly, selectedAddons, setSelectedAddons, anyFormErrors } = useFormStepContext()
+    const navigate = useNavigate()
 
     useEffect(() => {
+        if (anyFormErrors) {
+            navigate("/")
+        }
         setStep(3)
-    }, [setStep])
+    }, [setStep, anyFormErrors, navigate])
 
     const handleAddonClick = (e) => {
         const clickedAddonName = e.currentTarget.children[1].children[1].children[0].textContent

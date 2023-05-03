@@ -2,12 +2,15 @@ import { useEffect, useState } from "react"
 import useFormStepContext from "../hooks/use-form-step-context"
 
 function PersonalInfo() {
-    const { setStep, personalInformation, setPersonalInformation } = useFormStepContext()
-    const [formErrors, setFormErrors] = useState({})
+    const { setStep, personalInformation, setPersonalInformation, setAnyFormErrors } = useFormStepContext()
+    const [formErrors, setFormErrors] = useState({ name: "", email: "", tel: "" })
 
     useEffect(() => {
         setStep(1)
-    }, [setStep])
+        if (Object.values(formErrors).every(value => value === undefined)) {
+            setAnyFormErrors(false)
+        }
+    }, [setStep, formErrors, setAnyFormErrors])
 
     const validate = (values) => {
         let errors = {}
