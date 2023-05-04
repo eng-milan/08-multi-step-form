@@ -12,10 +12,10 @@ import useFormStepContext from "./hooks/use-form-step-context";
 function App() {
   const { step } = useFormStepContext()
 
-  return <main className={`h-screen ${step === 5 && "bg-[#f0f6ff]"}`}>
-    <div>
+  return <main className={`h-screen ${step === 5 && "bg-[#f0f6ff]"} xl:flex xl:justify-center xl:items-center xl:bg-[#f0f6ff]`}>
+    <div className="xl:flex xl:bg-white xl:rounded-l-xl">
       <HeaderNav />
-      <div className="bg-[#f0f6ff] border">
+      <div className="bg-[#f0f6ff]">
         <Routes>
           <Route path="/" element={<PersonalInfo />} />
           <Route path="/select-your-plan" element={<SelectYourPlan />} />
@@ -23,8 +23,8 @@ function App() {
           <Route path="/finishing-up" element={<FinishingUp />} />
           <Route path="/confirmation" element={<Confirmation />} />
         </Routes>
+        <FooterNav />
       </div>
-      <FooterNav />
     </div>
     <div className="fixed bottom-0 flex justify-center bg-white w-full">
       <Footer />

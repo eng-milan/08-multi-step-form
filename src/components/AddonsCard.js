@@ -3,7 +3,7 @@ function AddonsCard({ id, name, description, monthlyFee, yearlyFee, isYearly, ha
     const isChecked = selectedAddons.some(addon => addon.name === name)
 
     return <div
-        className={`flex items-center justify-between mb-[15px] px-[15px] py-[20px] border rounded-xl cursor-pointer
+        className={`flex items-center justify-between mb-[15px] px-[15px] py-[20px] border rounded-xl cursor-pointer hover:border-[#02295a]
         ${isChecked && "bg-[#f0f6ff] border-[#02295a]"}`}
         onClick={e => handleAddonClick(e)}>
         <label className="hidden" htmlFor={id}></label>

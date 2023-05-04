@@ -1,7 +1,7 @@
 import classNames from "classnames"
 
 function PlanCard({ image, planName, monthlyRate, yearlyRate, isYearly, handlePlanClick, selectedPlan }) {
-    const cardClassNames = classNames("flex items-start mb-[15px] px-[20px] py-[20px] border rounded-xl cursor-pointer", {
+    const cardClassNames = classNames("flex items-start mb-[15px] px-[20px] py-[20px] border rounded-xl cursor-pointer hover:border-[#02295a]", {
         " bg-[#f0f6ff] border-[#02295a]": selectedPlan.name === planName
     })
 

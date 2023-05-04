@@ -13,8 +13,9 @@ function SelectYourPlan() {
         if (anyFormErrors) {
             navigate("/")
         }
+        setSelectedPlan(plansData[0])
         setStep(2)
-    }, [setStep, anyFormErrors, navigate])
+    }, [setStep, anyFormErrors, navigate, setSelectedPlan])
 
     const handlePlanClick = (e) => {
         const selectedPlan = plansData.filter((plan) => {
