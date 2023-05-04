@@ -45,9 +45,9 @@ function FooterNav() {
         }
     }
 
-    return <div className={`flex justify-between mb-[20px] p-[20px] ${step !== 5 && "bg-white"} xl:mb-0 xl:rounded-br-xl`}>
+    return <div className={`flex justify-between mb-[20px] p-[20px] ${step !== 5 && "bg-white"} xl:mb-0 xl:px-[30px] xl:rounded-br-xl`}>
         <Link
-            className={`${linkClassNames} ${step === 1 && "invisible"} ${step === 5 && "invisible"} bg-white text-[#9699ab] hover:text-black`}
+            className={`${linkClassNames} ${step === 1 && "invisible"} ${step === 5 && "invisible"} bg-white text-[#9699ab] hover:text-black xl:pl-0`}
             to={whichStep("backward")}>
             Go Back
         </Link>

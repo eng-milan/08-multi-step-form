@@ -1,11 +1,12 @@
 import { createContext, useState } from "react";
+import plansData from "../data/plansData";
 
 const FormStepContext = createContext()
 
 function Provider({ children }) {
     const [step, setStep] = useState(1)
     const [personalInformation, setPersonalInformation] = useState({ name: "", email: "", tel: "" })
-    const [selectedPlan, setSelectedPlan] = useState({})
+    const [selectedPlan, setSelectedPlan] = useState(plansData[0])
     const [isYearly, setIsYearly] = useState(false)
     const [selectedAddons, setSelectedAddons] = useState([])
     const [anyFormErrors, setAnyFormErrors] = useState(true)

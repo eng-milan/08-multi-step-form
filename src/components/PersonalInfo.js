@@ -42,7 +42,7 @@ function PersonalInfo() {
     }
 
     return <div className="relative -top-[85px] mx-[20px] mb-[50px] px-[30px] pt-[25px] pb-[40px] bg-white rounded-xl
-    xl:static xl:m-0 xl:pt-[50px] xl:rounded-none xl:rounded-tr-xl xl:h-[555px]">
+    xl:static xl:m-0 xl:pt-[50px] xl:rounded-none xl:rounded-tr-xl xl:h-[555px] xl:w-[600px]">
         <div>
             <h1 className="text-[30px] font-bold xl:text-[40px]">Personal Info</h1>
             <p className="mt-[10px] text-[#9699ab] text-[20px] font-medium xl:text-[18px]">Please provide your name, email address, and phone number.</p>

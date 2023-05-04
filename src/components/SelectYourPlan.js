@@ -13,15 +13,14 @@ function SelectYourPlan() {
         if (anyFormErrors) {
             navigate("/")
         }
-        setSelectedPlan(plansData[0])
         setStep(2)
-    }, [setStep, anyFormErrors, navigate, setSelectedPlan])
+    }, [setStep, anyFormErrors, navigate])
 
     const handlePlanClick = (e) => {
-        const selectedPlan = plansData.filter((plan) => {
+        const chosenPlan = plansData.filter((plan) => {
             return plan.name === e.currentTarget.children[1].children[0].textContent
         })
-        setSelectedPlan(selectedPlan[0])
+        setSelectedPlan(chosenPlan[0])
     }
 
     const renderedPlanCards = plansData.map((plan) => {
@@ -36,11 +35,12 @@ function SelectYourPlan() {
             selectedPlan={selectedPlan} />
     })
 
-    return <div className="relative -top-[85px] mx-[20px] -mb-[50px] px-[30px] pt-[35px] pb-[40px] bg-white rounded-xl">
+    return <div className="relative -top-[85px] mx-[20px] -mb-[50px] px-[30px] pt-[35px] pb-[40px] bg-white rounded-xl
+    xl:static xl:m-0 xl:rounded-none xl:rounded-tr-xl xl:h-[555px] xl:w-[600px]">
         <div>
             <h1 className="text-[30px] font-bold">Select your plan</h1>
             <p className="mt-[10px] text-[#9699ab] text-[20px] font-medium">You have the option of monthly or yearly billing.</p>
-            <div className="mt-[30px]">
+            <div className="mt-[30px] xl:flex xl:justify-between">
                 {renderedPlanCards}
             </div>
             <div className="flex justify-center items-center mt-[30px] py-[10px] bg-[#f0f6ff] rounded-lg">
