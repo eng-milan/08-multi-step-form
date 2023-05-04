@@ -30,9 +30,10 @@ function FinishingUp() {
         return Number(addonsFee) + Number(planFee)
     }
 
-    return <div className="relative -top-[85px] mx-[20px] mb-[80px] px-[30px] py-[30px] bg-white rounded-xl">
-        <h1 className="text-[32px] font-bold">Finishing up</h1>
-        <p className="mt-[10px] text-[#9699ab] text-[20px] font-medium">Double-check everything looks OK before confirming.</p>
+    return <div className="relative -top-[85px] mx-[20px] mb-[80px] px-[30px] py-[30px] bg-white rounded-xl
+    xl:static xl:m-0 xl:pt-[50px] xl:rounded-none xl:rounded-tr-xl xl:h-[555px] xl:w-[600px]">
+        <h1 className="text-[32px] font-bold xl:text-[40px]">Finishing up</h1>
+        <p className="mt-[10px] text-[#9699ab] text-[20px] font-medium xl:text-[18px]">Double-check everything looks OK before confirming.</p>
         <div className="mt-[20px] mb-[30px] px-[15px] py-[20px] bg-[#fafbff] rounded-xl">
             <div className="flex justify-between items-center mb-[20px] pb-[20px] border-b-2">
                 <div className="flex flex-col">
@@ -48,9 +49,9 @@ function FinishingUp() {
                 {renderedAddons}
             </div>
         </div>
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between items-center ml-[15px]">
             <span className="text-[#9699ab] font-medium">Total ({isYearly ? "per year" : "per month"})</span>
-            <span className="mr-[15px] text-[#473dff] text-[18px] font-bold">{`+$${totalFee()}/mo`}</span>
+            <span className="mr-[15px] text-[#473dff] text-[18px] font-bold">{`+$${totalFee()}${isYearly ? "/yr" : "/mo"}`}</span>
         </div>
     </div>
 }

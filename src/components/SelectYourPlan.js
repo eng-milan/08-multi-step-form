@@ -36,10 +36,10 @@ function SelectYourPlan() {
     })
 
     return <div className="relative -top-[85px] mx-[20px] -mb-[50px] px-[30px] pt-[35px] pb-[40px] bg-white rounded-xl
-    xl:static xl:m-0 xl:rounded-none xl:rounded-tr-xl xl:h-[555px] xl:w-[600px]">
+    xl:static xl:m-0 xl:pt-[50px] xl:rounded-none xl:rounded-tr-xl xl:h-[555px] xl:w-[600px]">
         <div>
-            <h1 className="text-[30px] font-bold">Select your plan</h1>
-            <p className="mt-[10px] text-[#9699ab] text-[20px] font-medium">You have the option of monthly or yearly billing.</p>
+            <h1 className="text-[30px] font-bold xl:text-[40px]">Select your plan</h1>
+            <p className="mt-[10px] text-[#9699ab] text-[20px] font-medium xl:text-[18px]">You have the option of monthly or yearly billing.</p>
             <div className="mt-[30px] xl:flex xl:justify-between">
                 {renderedPlanCards}
             </div>

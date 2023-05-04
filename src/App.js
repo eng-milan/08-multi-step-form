@@ -15,7 +15,7 @@ function App() {
   return <main className={`h-screen ${step === 5 && "bg-[#f0f6ff]"} xl:flex xl:justify-center xl:items-center xl:bg-[#f0f6ff]`}>
     <div className="xl:flex xl:bg-white xl:rounded-l-xl">
       <HeaderNav />
-      <div className="bg-[#f0f6ff]">
+      <div className="bg-[#f0f6ff] border-4">
         <Routes>
           <Route path="/" element={<PersonalInfo />} />
           <Route path="/select-your-plan" element={<SelectYourPlan />} />
