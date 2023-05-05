@@ -16,7 +16,7 @@ function App() {
     <div className="lg:flex lg:bg-white lg:rounded-l-xl lg:m-auto">
       <HeaderNav />
       <div className={`bg-[#f0f6ff] ${step === 5 && "lg:h-full"}`}>
-        <div className="h-[650px] lg:h-[550px] lg:bg-white">
+        <div className="h-[620px] lg:h-[550px] lg:bg-white">
           <Routes>
             <Route path="/" element={<PersonalInfo />} />
             <Route path="/select-your-plan" element={<SelectYourPlan />} />
