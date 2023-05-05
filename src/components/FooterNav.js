@@ -5,7 +5,7 @@ import useFormStepContext from "../hooks/use-form-step-context"
 function FooterNav() {
     const { step, personalInformation, anyFormErrors } = useFormStepContext()
 
-    let linkClassNames = classNames("px-[20px] py-[10px] font-medium rounded-md", {
+    let linkClassNames = classNames("px-[20px] py-[13px] w-[130px] text-center font-medium rounded-md", {
         "bg-[#9699ab]": step === 1 && anyFormErrors
     })
 
@@ -42,9 +42,10 @@ function FooterNav() {
         }
     }
 
-    return <div className={`flex justify-between mb-[20px] p-[20px] bg-white ${step === 5 && "invisible"} xl:mb-0 xl:px-[30px] xl:rounded-br-xl`}>
+    return <div className={`flex justify-between mb-[20px] p-[20px] bg-white ${step === 5 && "hidden"}
+    md:px-[70px] lg:mb-0 lg:px-[30px] lg:rounded-br-xl`}>
         <Link
-            className={`${linkClassNames} ${step === 1 && "invisible"} bg-white text-[#9699ab] hover:text-black xl:pl-0`}
+            className={`${linkClassNames} ${step === 1 && "invisible"} pl-0 text-left bg-white text-[#9699ab] hover:text-black lg:pl-0`}
             to={whichStep("backward")}>
             Go Back
         </Link>

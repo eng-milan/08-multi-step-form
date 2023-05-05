@@ -41,12 +41,12 @@ function PersonalInfo() {
         setFormErrors(prevErrors => ({ ...prevErrors, [id]: errors[id] }))
     }
 
-    return <div className="relative -top-[85px] mx-[20px] mb-[50px] px-[30px] pt-[25px] pb-[40px] bg-white rounded-xl
-    xl:static xl:m-0 xl:pt-[50px] xl:rounded-none xl:rounded-tr-xl xl:h-[555px] xl:w-[600px]">
+    return <div className="relative -top-[85px] mx-[20px] px-[30px] pt-[25px] pb-[50px] bg-white rounded-xl md:mx-[70px]
+    lg:static lg:m-0 lg:pt-[50px] lg:rounded-none lg:rounded-tr-xl lg:w-[600px]">
         <div>
-            <h1 className="text-[30px] font-bold xl:text-[40px]">Personal Info</h1>
-            <p className="mt-[10px] text-[#9699ab] text-[20px] font-medium xl:text-[18px]">Please provide your name, email address, and phone number.</p>
-            <form className="mt-[15px] xl:mt-[30px]">
+            <h1 className="text-[30px] font-bold lg:text-[40px]">Personal Info</h1>
+            <p className="mt-[10px] text-[#9699ab] text-[20px] font-medium lg:text-[18px]">Please provide your name, email address, and phone number.</p>
+            <form className="mt-[15px] lg:mt-[30px]">
                 <label className="text-[14px] font-medium" htmlFor="name">Name</label>
                 <input
                     onChange={e => handleChange(e)}

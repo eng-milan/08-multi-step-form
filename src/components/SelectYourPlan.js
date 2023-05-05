@@ -35,15 +35,15 @@ function SelectYourPlan() {
             selectedPlan={selectedPlan} />
     })
 
-    return <div className="relative -top-[85px] mx-[20px] -mb-[50px] px-[30px] pt-[35px] pb-[40px] bg-white rounded-xl
-    xl:static xl:m-0 xl:pt-[50px] xl:rounded-none xl:rounded-tr-xl xl:h-[555px] xl:w-[600px]">
+    return <div className="relative -top-[85px] mx-[20px] px-[30px] pt-[35px] pb-[40px] bg-white rounded-xl md:mx-[70px]
+    lg:static lg:m-0 lg:pt-[50px] lg:rounded-none lg:rounded-tr-xl lg:h-[555px] lg:w-[600px]">
         <div>
-            <h1 className="text-[30px] font-bold xl:text-[40px]">Select your plan</h1>
-            <p className="mt-[10px] text-[#9699ab] text-[20px] font-medium xl:text-[18px]">You have the option of monthly or yearly billing.</p>
-            <div className="mt-[30px] xl:flex xl:justify-between">
+            <h1 className="text-[30px] font-bold lg:text-[40px]">Select your plan</h1>
+            <p className="mt-[10px] text-[#9699ab] text-[20px] font-medium lg:text-[18px]">You have the option of monthly or yearly billing.</p>
+            <div className="mt-[30px] lg:flex lg:justify-between">
                 {renderedPlanCards}
             </div>
-            <div className="flex justify-center items-center mt-[30px] py-[10px] bg-[#f0f6ff] rounded-lg">
+            <div className="flex justify-center items-center mt-[30px] py-[10px] bg-[#f0f6ff] rounded-xl">
                 <span className={`mr-[25px] text-[20px] font-medium ${isYearly && "text-[#9699ab]"}`}>Monthly</span>
                 <Switch isYearly={isYearly} onToggle={() => setIsYearly(!isYearly)} />
                 <span className={`ml-[25px] text-[20px] font-medium ${!isYearly && "text-[#9699ab]"}`}>Yearly</span>

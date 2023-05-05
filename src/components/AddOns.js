@@ -46,10 +46,10 @@ function AddOns() {
             selectedAddons={selectedAddons} />
     })
 
-    return <div className="relative -top-[85px] mx-[20px] mb-[80px] px-[30px] py-[30px] bg-white rounded-xl
-    xl:static xl:m-0 xl:pt-[50px] xl:rounded-none xl:rounded-tr-xl xl:h-[555px] xl:w-[600px]">
-        <h1 className="text-[32px] font-bold xl:text-[40px]">Pick add-ons</h1>
-        <p className="mt-[10px] text-[#9699ab] text-[20px] font-medium xl:text-[18px]">Add-ons help enhance your gaming experience.</p>
+    return <div className="relative -top-[85px] mx-[20px] px-[30px] py-[30px] bg-white rounded-xl md:mx-[70px]
+    lg:static lg:m-0 lg:pt-[50px] lg:rounded-none lg:rounded-tr-xl lg:h-[555px] lg:w-[600px]">
+        <h1 className="text-[32px] font-bold lg:text-[40px]">Pick add-ons</h1>
+        <p className="mt-[10px] text-[#9699ab] text-[20px] font-medium lg:text-[18px]">Add-ons help enhance your gaming experience.</p>
         <div className="mt-[30px]">
             {renderedAddons}
         </div>

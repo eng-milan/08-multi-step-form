@@ -30,10 +30,10 @@ function FinishingUp() {
         return Number(addonsFee) + Number(planFee)
     }
 
-    return <div className="relative -top-[85px] mx-[20px] mb-[80px] px-[30px] py-[30px] bg-white rounded-xl
-    xl:static xl:m-0 xl:pt-[50px] xl:rounded-none xl:rounded-tr-xl xl:h-[555px] xl:w-[600px]">
-        <h1 className="text-[32px] font-bold xl:text-[40px]">Finishing up</h1>
-        <p className="mt-[10px] text-[#9699ab] text-[20px] font-medium xl:text-[18px]">Double-check everything looks OK before confirming.</p>
+    return <div className="relative -top-[85px] mx-[20px] px-[30px] py-[30px] bg-white rounded-xl md:mx-[70px]
+    lg:static lg:m-0 lg:pt-[50px] lg:rounded-none lg:rounded-tr-xl lg:h-[555px] lg:w-[600px]">
+        <h1 className="text-[32px] font-bold lg:text-[40px]">Finishing up</h1>
+        <p className="mt-[10px] text-[#9699ab] text-[20px] font-medium lg:text-[18px]">Double-check everything looks OK before confirming.</p>
         <div className="mt-[20px] mb-[30px] px-[15px] py-[20px] bg-[#fafbff] rounded-xl">
             <div className="flex justify-between items-center mb-[20px] pb-[20px] border-b-2">
                 <div className="flex flex-col">
