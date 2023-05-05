@@ -29,7 +29,7 @@ function App() {
       </div>
     </div>
     <div className="fixed bottom-0 flex justify-center bg-white w-full">
-      <Footer className="text-[14px] sm:text-[16px]" />
+      <Footer className="text-[12px] sm:text-[14px] md:text-[16px]" />
     </div>
   </main>
 }
