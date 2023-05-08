@@ -7,10 +7,7 @@ function PersonalInfo() {
 
     useEffect(() => {
         setStep(1)
-        if (Object.values(formErrors).every(value => value === undefined)) {
-            setAnyFormErrors(false)
-        }
-    }, [setStep, formErrors, setAnyFormErrors])
+    }, [setStep])
 
     const validate = (values) => {
         let errors = {}
@@ -21,13 +18,13 @@ function PersonalInfo() {
 
         if (values.email === "") {
             errors.email = "Email is required!"
-        } else if (!/^\S+@\S+\.\S+$/.test(values.email)) {
+        } else if (values.email && !/^\S+@\S+\.\S+$/.test(values.email)) {
             errors.email = "Email is invalid!"
         }
 
         if (values.tel === "") {
             errors.tel = "Phone number is required!"
-        } else if (!/^[0-9]{10}$/.test(values.tel)) {
+        } else if (values.tel && !/^[0-9]{10}$/.test(values.tel)) {
             errors.tel = "Phone number is invalid!"
         }
 
@@ -37,8 +34,14 @@ function PersonalInfo() {
     const handleChange = (e) => {
         const { id, value } = e.target
         setPersonalInformation(prevValue => ({ ...prevValue, [id]: value }))
-        const errors = validate({ [id]: value })
+        const errors = validate({ ...personalInformation, [id]: value })
+        console.log(errors)
         setFormErrors(prevErrors => ({ ...prevErrors, [id]: errors[id] }))
+        if (Object.values(errors).every(value => value === undefined)) {
+            setAnyFormErrors(false)
+        } else {
+            setAnyFormErrors(true)
+        }
     }
 
     return <div className="relative -top-[85px] mx-[20px] px-[30px] pt-[25px] pb-[50px] bg-white rounded-xl md:mx-[70px]

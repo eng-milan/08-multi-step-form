@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 import useFormStepContext from "../hooks/use-form-step-context"
 
 function FooterNav() {
-    const { step, personalInformation, anyFormErrors } = useFormStepContext()
+    const { step, anyFormErrors } = useFormStepContext()
 
     let linkClassNames = classNames("px-[20px] py-[13px] w-[130px] text-center font-medium rounded-md", {
         "bg-[#9699ab]": step === 1 && anyFormErrors
@@ -37,7 +37,8 @@ function FooterNav() {
     }
 
     const handleConfirmationClick = (e) => {
-        if (step === 1 && (personalInformation.name === "" || personalInformation.email === "" || personalInformation.tel === "")) {
+        console.log(anyFormErrors)
+        if (step === 1 && anyFormErrors) {
             e.preventDefault()
         }
     }
