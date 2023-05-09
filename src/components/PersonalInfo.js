@@ -35,7 +35,6 @@ function PersonalInfo() {
         const { id, value } = e.target
         setPersonalInformation(prevValue => ({ ...prevValue, [id]: value }))
         const errors = validate({ ...personalInformation, [id]: value })
-        console.log(errors)
         setFormErrors(prevErrors => ({ ...prevErrors, [id]: errors[id] }))
         if (Object.values(errors).every(value => value === undefined)) {
             setAnyFormErrors(false)

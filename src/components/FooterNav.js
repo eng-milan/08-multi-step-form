@@ -37,7 +37,6 @@ function FooterNav() {
     }
 
     const handleConfirmationClick = (e) => {
-        console.log(anyFormErrors)
         if (step === 1 && anyFormErrors) {
             e.preventDefault()
         }
